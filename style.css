@@ -1,7 +1,23 @@
+@font-face {
+    font-family: 'SF Pro Display Thin';
+    src: url('SF-Pro-Display-Thin.otf') format('opentype');
+}
+
 body {
+    font-family: 'SF Pro Display Thin', sans-serif;
+}
 
-    overflow: hidden;
-
+#aboutme::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url('noise.jpeg');
+    background-size: 5% 5%; /* Adjust this to zoom out the noise */
+    opacity: 0.1; /* Adjust this to make the noise more transparent */
+    z-index: 1;
 }
 #aboutme {
     position: absolute;
@@ -12,8 +28,7 @@ body {
     height: 50vh;
     background-color: rgba(255, 255, 255, 0);
     border-radius: 10px;
-
-    /*background: linear-gradient(45deg, rgba(59,46,255,0.75) 0%, rgba(222,29,255,0.75) 100%); */
+    background: linear-gradient(45deg, rgba(59,46,255,0.05) 0%, rgba(222,29,255,0.05) 100%);
     box-shadow: 0px 0px 12px 0px black;
     padding: 20px;
     text-align: center;
@@ -21,8 +36,10 @@ body {
     z-index: 2;
     backdrop-filter: brightness(110%);
     backdrop-filter: blur(8px);
-
+    
 }
+
+
 #aboutme::after {
     content: "";
     position: absolute;
@@ -39,23 +56,35 @@ body {
     left: 10px;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 550%;
-    height: 300px;
-    width: 300px;
+    background-size: cover; /* Changed from 550% to cover */
+    height: 150px; /* Reduced size from 300px to 150px */
+    width: 150px; /* Reduced size from 300px to 150px */
     border-radius: 500px;
     z-index: 4;
     box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.5); /* Add this line */
+    padding: 10px; /* Added padding */
+    transition-duration: 0.5s;
 }
-
-
-    
+#profileimage:hover {
+    transition-duration: 0.5s;
+    transform: scale(1.1) rotate(-60deg);
+}
+#info {
+    position: absolute;
+    top: 170px; /* Adjust as needed */
+    left: 10px; /* Adjust as needed */
+    z-index: 5;
+}
+#game-link {
+    color: blue;
+    text-decoration: none;
+}
 #gradient {
     position: absolute;
     left: 0px;
     top: 0px;
     width: 100vw;
     height: 100vh;
-    /*background: linear-gradient(45deg, rgba(222,29,255,0.75) 0%, rgba(59,46,255,0.75) 100%);*/
-    background: url('image.png');
+    background: linear-gradient(45deg, rgba(60, 60, 60, 0.5) 0%, rgba(123, 83, 255, 0.5) 100%);
     background-size: cover;
 }
